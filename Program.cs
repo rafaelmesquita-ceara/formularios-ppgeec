@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Formularios_bia.Data;
 using Formularios_bia.Models;
 using Formularios_bia.Models.Enums;
 using Microsoft.AspNetCore.Hosting;
@@ -15,9 +16,8 @@ namespace Formularios_bia
   {
     public static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
-      ModelTest();
-      //CreateHostBuilder(args).Build().Run();
+      //ModelTest();
+      CreateHostBuilder(args).Build().Run();
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -27,7 +27,7 @@ namespace Formularios_bia
               webBuilder.UseStartup<Startup>();
             });
 
-    static void ModelTest()
+    /*static void ModelTest()
     {
       var form = new Form("Rafael Mesquita Brito");
       form.Id = 1;
@@ -70,6 +70,6 @@ namespace Formularios_bia
         )
       );
       form.ShowFormInfo();
-    }
+    } */
   }
 }

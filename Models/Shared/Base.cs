@@ -1,7 +1,11 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace Formularios_bia.Models.Shared
 {
   public class Base
   {
-    public int Id { get; set; }
+    [Key]
+    public int ID { get; set; }
   }
 }

@@ -5,6 +5,10 @@ namespace Formularios_bia.Models
 {
   public class CheckBoxAsk : Base
   {
+    public CheckBoxAsk()
+    {
+
+    }
     public CheckBoxAsk(string text, bool value, int formId)
     {
       Text = text;
@@ -18,6 +22,7 @@ namespace Formularios_bia.Models
 
     public void ShowCheckBoxAskInfo()
     {
+      Console.WriteLine($"ID: {ID}");
       Console.WriteLine($"Text: {Text}");
       Console.WriteLine($"Value: {Value}");
     }
