@@ -31,6 +31,7 @@ namespace Formularios_bia.Models
     public void ShowFormInfo()
     {
       Console.WriteLine($"Name: {Name}");
+      Console.WriteLine($"Submit Date: {SubmitDate.ToString("dd/MM/yyyy")}");
       Console.WriteLine("##############");
       Console.WriteLine("Articles: ");
       Console.WriteLine("##############");
