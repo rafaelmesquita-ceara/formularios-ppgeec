@@ -28,7 +28,6 @@ namespace Formularios_bia.Controllers.Api
         .ToListAsync();
 
       var projects = await context.Projects.ToListAsync();
-
       foreach (var form in forms)
       {
         foreach (var article in form.Articles)
@@ -36,8 +35,31 @@ namespace Formularios_bia.Controllers.Api
           article.AssociatedProject = projects.FirstOrDefault(x => x.ID == article.AssociatedProjectId);
         }
       }
-
       return Ok(forms);
+    }
+
+    [HttpGet]
+    [Route("{id:int}")]
+    [AllowAnonymous]
+    public async Task<ActionResult<Form>> GetById(
+      int id,
+      [FromServices] DataContext context
+    )
+    {
+      var form = await context
+        .Forms
+        .Include(x => x.Articles)
+        .Include(x => x.CheckBoxAsks)
+        .Include(x => x.TextAsks)
+        .AsNoTracking()
+        .FirstOrDefaultAsync(x => x.ID == id);
+      
+      var projects = await context.Projects.ToListAsync();
+      foreach (var article in form.Articles)
+      {
+        article.AssociatedProject = projects.FirstOrDefault(x => x.ID == article.AssociatedProjectId);
+      }
+      return Ok(form);
     }
 
     [HttpPost]
