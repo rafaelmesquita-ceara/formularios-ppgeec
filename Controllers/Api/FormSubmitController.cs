@@ -53,7 +53,7 @@ namespace Formularios_bia.Controllers.Api
         .Include(x => x.TextAsks)
         .AsNoTracking()
         .FirstOrDefaultAsync(x => x.ID == id);
-      
+
       var projects = await context.Projects.ToListAsync();
       foreach (var article in form.Articles)
       {
@@ -75,6 +75,29 @@ namespace Formularios_bia.Controllers.Api
       catch (Exception)
       {
         return BadRequest(new { message = "Não foi possível submeter os dados do formulário" });
+      }
+    }
+
+    [HttpDelete]
+    [Route("{id:int}")]
+    public async Task<ActionResult<Form>> Delete(
+      int id,
+      [FromServices] DataContext context
+    )
+    {
+      var form = await context.Forms.FirstOrDefaultAsync(x => x.ID == id);
+      if (form == null)
+        return NotFound(new { message = "Submissão não encontrada" });
+
+      try
+      {
+        context.Forms.Remove(form);
+        await context.SaveChangesAsync();
+        return Ok(new { message = "Submissão removida com sucesso" });
+      }
+      catch (Exception)
+      {
+        return BadRequest(new { message = "Não foi possível remover a submissão" });
       }
     }
   }
