@@ -5,6 +5,10 @@ namespace Formularios_bia.Models
 {
   public class TextAsk : Base
   {
+    public TextAsk()
+    {
+        
+    }
     public TextAsk(string text, string value, int formId)
     {
       Text = text;

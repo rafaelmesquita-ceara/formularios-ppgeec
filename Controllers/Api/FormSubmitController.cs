@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Formularios_bia.Data;
 using Formularios_bia.Models;
@@ -25,18 +27,33 @@ namespace Formularios_bia.Controllers.Api
         .AsNoTracking()
         .ToListAsync();
 
+      var projects = await context.Projects.ToListAsync();
+
       foreach (var form in forms)
       {
         foreach (var article in form.Articles)
         {
-          article.AssociatedProject = await context
-            .Projects
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.ID == article.AssociatedProjectId);
+          article.AssociatedProject = projects.FirstOrDefault(x => x.ID == article.AssociatedProjectId);
         }
       }
 
       return Ok(forms);
+    }
+
+    [HttpPost]
+    [Route("")]
+    public async Task<ActionResult<Form>> Post([FromServices] DataContext context, [FromBody] Form form)
+    {
+      try
+      {
+        context.Forms.Add(form);
+        await context.SaveChangesAsync();
+        return Ok(form);
+      }
+      catch (Exception)
+      {
+        return BadRequest(new { message = "Não foi possível submeter os dados do formulário" });
+      }
     }
   }
 }

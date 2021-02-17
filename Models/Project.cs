@@ -13,6 +13,10 @@ namespace Formularios_bia.Models
       PublicationFocusArea = publicationFocusArea;
       PublicationResearchLines = publicationResearchLines;
     }
+    public Project()
+    {
+        
+    }
 
     public string Title { get; set; }
     public string Teacher { get; set; }
