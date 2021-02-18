@@ -28,6 +28,7 @@ a {
 -------------------------------------------------- */
 html {
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
 }
 @media (min-width: 768px) {
   html {
@@ -63,7 +64,6 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
