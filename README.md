@@ -25,4 +25,4 @@ dotnet build
 dotnet run
 ```
 
-visit http://localhost:5000/alive
+visit https://localhost:5001/
