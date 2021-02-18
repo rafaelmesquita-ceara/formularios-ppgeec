@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Formularios_bia.Models.Enums;
 using Formularios_bia.Models.Shared;
 
@@ -23,6 +24,7 @@ namespace Formularios_bia.Models
     }
 
     public EArticleType Type { get; set; }
+    [Required(ErrorMessage = "Preencha todos os campos obrigatórios!")]
     public string Description { get; set; }
     public int AssociatedProjectId { get; set; }
     public Project AssociatedProject { get; set; }

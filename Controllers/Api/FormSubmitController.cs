@@ -66,15 +66,22 @@ namespace Formularios_bia.Controllers.Api
     [Route("")]
     public async Task<ActionResult<Form>> Post([FromServices] DataContext context, [FromBody] Form form)
     {
-      try
+      if (ModelState.IsValid)
       {
-        context.Forms.Add(form);
-        await context.SaveChangesAsync();
-        return Ok(form);
+        try
+        {
+          context.Forms.Add(form);
+          await context.SaveChangesAsync();
+          return Ok(form);
+        }
+        catch (Exception)
+        {
+          return BadRequest(new { message = "Não foi possível submeter os dados do formulário" });
+        }
       }
-      catch (Exception)
+      else
       {
-        return BadRequest(new { message = "Não foi possível submeter os dados do formulário" });
+        return BadRequest(ModelState);
       }
     }
 

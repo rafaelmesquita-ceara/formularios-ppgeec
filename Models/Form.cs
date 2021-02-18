@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Formularios_bia.Models.Shared;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Formularios_bia.Models
 {
@@ -19,6 +21,8 @@ namespace Formularios_bia.Models
       CheckBoxAsks = new List<CheckBoxAsk>();
       TextAsks = new List<TextAsk>();
     }
+
+    [Required(ErrorMessage = "Preencha todos os campos obrigatórios!")]
     public string Name { get; set; }
     public IList<Article> Articles { get; set; }
     public IList<CheckBoxAsk> CheckBoxAsks { get; set; }
