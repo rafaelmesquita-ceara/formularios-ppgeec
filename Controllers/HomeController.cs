@@ -21,14 +21,6 @@ namespace Formularios_bia.Controllers
 
     public IActionResult Index([FromServices] DataContext context)
     {
-      context.CheckBoxAsks.Add(new CheckBoxAsk("Teste", true, 1));
-      context.CheckBoxAsks.Add(new CheckBoxAsk("Teste 2", false, 1));
-      context.SaveChanges();
-      foreach (var item in context.CheckBoxAsks)
-      {
-          item.ShowCheckBoxAskInfo();
-      }
-
       return View();
     }
 

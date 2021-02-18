@@ -26,7 +26,10 @@ namespace Formularios_bia
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllersWithViews();
-      services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+      //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+      services.AddDbContext<DataContext>(
+                opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString"))
+            );
 
     }
 
