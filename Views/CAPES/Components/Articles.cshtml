@@ -1,0 +1,64 @@
+<div class="form-check-article">
+  <select class="form-control" aria-label="Default select example" id="articleType">
+    <option value="0" selected>Tipo de artigo</option>
+    <option value="1">Artigo de periódicos</option>
+    <option value="2">Artigo em anais de eventos</option>
+  </select>
+</div>
+
+<div class="form-check-article">
+  <label for="exampleFormControlTextarea1">Descreva o título do seu artigo</label>
+  <textarea class="form-control" rows="3" id="articleDescription"></textarea>
+</div>
+
+<div class="form-check-article">
+  <select class="form-control" aria-label="Default select example" id="articlePublicationArea">
+    <option value="0" selected>Área de concentração da publicação</option>
+    <option value="1">Sistemas de informação</option>
+    <option value="2">Sistemas de energia elétrica</option>
+  </select>
+</div>
+
+<div class="form-check-article">
+  <select class="form-control" aria-label="Default select example" id="articlePublicationResearchLine">
+    <option value="0" selected>Linha de pesquisa da publicação</option>
+    <option value="1">Sistemas de comunicação</option>
+    <option value="2">Algoritmos de computação distribuída</option>
+    <option value="3">Eletronica de potencia</option>
+  </select>
+</div>
+
+<div class="form-check-article">
+  <select class="form-control" aria-label="Default select example" id="articleAssociatedProject">
+    <option value="0" selected>Nome do projeto associado</option>
+    <option value="1" selected>Projeto teste</option>
+  </select>
+</div>
+
+<div class="form-check-article" style="margin-left: 20px;">
+  <input class="form-check-input" type="checkbox" value="" id="q1">
+  <label class="form-check-label" for="q1">
+    A produção é vinculada a trabalho de conclusão?
+  </label>
+</div>
+
+<div class="form-check-article" style="margin-left: 20px;">
+  <input class="form-check-input" type="checkbox" value="" id="q2" style="margin">
+  <label class="form-check-label" for="q2">
+    O trabalho do estudante já passou por defesa?
+  </label>
+</div>
+
+<div class="form-check-article">
+  <select class="form-control" aria-label="Default select example" id="articleAssociatedProgram">
+    <option value="0" selected>O trabalho de conclusão é associado ao PPGEEC ou a outro programa?</option>
+    <option value="1">PPGEEC</option>
+    <option value="2">Outro PPG da UFC</option>
+    <option value="3">PPG de outra instituição</option>
+  </select>
+</div>
+
+<button type="button" class="btn btn-primary btn-article" onclick="addArticle()">Adicionar</button>
+
+<div id="articleList">
+</div>

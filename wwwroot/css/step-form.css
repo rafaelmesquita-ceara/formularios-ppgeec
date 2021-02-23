@@ -49,7 +49,11 @@ html {
   color: #9E9E9E
 }
 
-#msform input,
+#msform fieldset .form-card .form-check{
+  color: #222222
+}
+
+#msform input[type=text],
 #msform textarea {
   padding: 0px 8px 4px 8px;
   border: none;
@@ -236,4 +240,14 @@ select.list-dt:focus {
 .fit-image {
   width: 100%;
   object-fit: cover
+}
+
+.form-check-article {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.btn-article{
+    width: 100%;
 }
